@@ -1,0 +1,46 @@
+body {
+  background-image: url("../assets/img/home.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  gap: 20dvh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 3dvh;
+}
+
+.button {
+  display: inline-block;
+  padding: 20px 40px;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 35px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.benevole {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.login {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
