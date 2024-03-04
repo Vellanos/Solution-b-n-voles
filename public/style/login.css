@@ -1,0 +1,21 @@
+body {
+  background-image: url("../assets/img/home.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  /* gap: 20dvh; */
+}
+
+.form-button {
+  margin: 0 auto;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
