@@ -14,14 +14,14 @@
         <div class="form-wrapper d-flex flex-column gap-4">
             <h1> Bon retour parmis nous !</h1>
             <h2>Si vous êtes admin</h2>
-            <form class="d-flex flex-column container justify-content-center align-items-center mb-2 gap-3">
+            <form class="d-flex flex-column container justify-content-center align-items-center mb-2 gap-3" method="POST" action="../backend/logInAdmin.php">
                 <div class="mb-3">
                     <label for="Username" class="form-label d-flex">Username</label>
-                    <input type="text" class="form-control" id="Username">
+                    <input type="text" name="username" class="form-control" id="Username">
                 </div>
                 <div class="mb-3">
                     <label for="Password" class="form-label d-flex">Password</label>
-                    <input type="password" class="form-control" id="Password">
+                    <input type="password" name="password" class="form-control" id="Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
             </form>
