@@ -1,3 +1,12 @@
+<?php 
+
+if (!isset($_GET['successAdmin']) || $_GET['successAdmin'] != '1') {
+    header("Location: login.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

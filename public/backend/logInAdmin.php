@@ -10,10 +10,10 @@ if (!empty($_POST) && isset($_POST['username']) && isset($_POST['password'])) {
     $hashedSecretPassword = password_hash($secretPassword, PASSWORD_DEFAULT);
 
     if ($username === $secretUsername && $password === $secretPassword) {
-        header("Location: ../pages/admin.php");
+        header("Location: ../pages/admin.php?successAdmin=1");
         exit;
     } else {
-        header("Location: ../pages/login.php?successSignIn=0");
+        header("Location: ../pages/login.php");
         exit;
     }
     
