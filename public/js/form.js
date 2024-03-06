@@ -1,4 +1,4 @@
-function afficherPartie(idPartie,idPartieOld) {
+function afficherPartie(idPartie, idPartieOld) {
   var isValid = validateForm(idPartieOld); // Valide le formulaire
   if (isValid) {
     var parties = document.getElementsByClassName("partie");
@@ -8,6 +8,14 @@ function afficherPartie(idPartie,idPartieOld) {
     document.getElementById(idPartie).style.display = "block";
   }
 }
+
+function backPartie(idPartie) {
+    var parties = document.getElementsByClassName("partie");
+    for (var i = 0; i < parties.length; i++) {
+      parties[i].style.display = "none";
+    }
+    document.getElementById(idPartie).style.display = "block";
+  }
 
 function validateForm(idPartieOld) {
   var nom = document.getElementById("nom").value;
@@ -29,13 +37,14 @@ function validateForm(idPartieOld) {
   document.getElementById("nomError").innerHTML = "";
   document.getElementById("prenomError").innerHTML = "";
   document.getElementById("ageError").innerHTML = "";
+  document.getElementById("sexeError").innerHTML = "";
   document.getElementById("telephoneError").innerHTML = "";
   document.getElementById("emailError").innerHTML = "";
+  document.getElementById("regionError").innerHTML = "";
   document.getElementById("disponibiliteJourError").innerHTML = "";
   document.getElementById("disponibiliteHoraireError").innerHTML = "";
   document.getElementById("expressionLibreError").innerHTML = "";
 
-  
   if (idPartieOld === "partie1") {
     // Validation du nom
     if (nom.length < 3 || nom.length > 30) {
@@ -58,6 +67,13 @@ function validateForm(idPartieOld) {
       isValid = false;
     }
 
+    // Validation du sexe
+    if (sexe == "") {
+      document.getElementById("sexeError").innerHTML =
+        "Veuillez sélectionner une option";
+      isValid = false;
+    }
+
     // Validation du numéro de téléphone
     if (telephone.length !== 10) {
       document.getElementById("telephoneError").innerHTML =
@@ -74,6 +90,14 @@ function validateForm(idPartieOld) {
   }
 
   if (idPartieOld === "partie2") {
+    // Validation de la région
+    console.log(region);
+    if (region.length === 0) {
+      document.getElementById("regionError").innerHTML =
+        "Veuillez sélectionner une option";
+      isValid = false;
+    }
+
     // Validation de la disponibilité jour
     if (disponibiliteJour.length === 0) {
       document.getElementById("disponibiliteJourError").innerHTML =
@@ -89,7 +113,7 @@ function validateForm(idPartieOld) {
     }
   }
 
-  if (idPartieOld === "partie2") {
+  if (idPartieOld === "partie3") {
     // Validation de l'expression libre
     if (expressionLibre.length < 30 || expressionLibre.length > 500) {
       document.getElementById("expressionLibreError").innerHTML =

@@ -13,7 +13,7 @@
   <?php include("../assets/components/header.php") ?>
   <main class="d-flex flex-column align-items-center text-center mt-3">
     <div class="form-wrapper d-flex flex-column gap-4">
-      <form class="d-flex flex-column container justify-content-center align-items-center mb-2 gap-3" method="POST" action="">
+      <form class="d-flex flex-column container justify-content-center align-items-center mb-2 gap-3" method="POST" action="../backend/traitementFormBenevole.php" >
 
         <!-- PARTIE 1 FORMULAIRE -->
         <div id="partie1" class="partie">
@@ -40,6 +40,7 @@
               <option value="femme">Femme</option>
               <option value="secret">Secret</option>
             </select>
+            <span id="sexeError" class="text-danger"></span><br>
           </div>
           <div class="mb-3">
             <label for="telephone" class="form-label d-flex">Numéro de téléphone</label>
@@ -74,6 +75,7 @@
               <option value="Pays de la Loire">Pays de la Loire</option>
               <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
             </select>
+            <span id="regionError" class="text-danger"></span><br>
           </div>
 
           <div class="mb-3">
@@ -97,7 +99,7 @@
           </div>
 
           <div class="mb-3">
-            <label for="post-privilégie" class="form-label d-flex">Post privilégié</label>
+            <label for="post-privilégi" class="form-label d-flex">Post privilégié (facultatif)</label>
             <select name="post-privilégie" id="post-privilégie" class="form-select" multiple>
               <option value="sécurité">Sécurité</option>
               <option value="bar">Bar</option>
@@ -105,8 +107,8 @@
               <option value="animation">Animation</option>
             </select>
           </div>
-          <button type="button" class="btn btn-primary" onclick="afficherPartie('partie1', 'partie2')">Précédent</button>
-          <button type="reset" class="btn btn-danger">Rénitialiser</button>
+          <button type="button" class="btn btn-primary" onclick="backPartie('partie1')">Précédent</button>
+          <button type="reset" class="btn btn-danger" onclick="backPartie('partie1')">Rénitialiser</button>
           <button type="button" class="btn btn-primary" onclick="afficherPartie('partie3', 'partie2')">Suivant</button>
         </div>
         <!-- PARTIE 3 FORMULAIRE -->
@@ -116,8 +118,9 @@
             <textarea name="expression-libre" id="expression-libre" class="form-control" required minlength="30" maxlength="500"></textarea>
             <span id="expressionLibreError" class="text-danger"></span><br>
           </div>
-          <button type="button" class="btn btn-primary" onclick="afficherPartie('partie2', 'partie3')">Précédent</button>
-          <button type="submit" class="btn btn-success">S'enregistrer</button>
+          <button type="button" class="btn btn-primary" onclick="backPartie('partie2')">Précédent</button>
+          <button type="reset" class="btn btn-danger" onclick="backPartie('partie1')">Rénitialiser</button>
+          <button type="submit" class="btn btn-success" onclick="validateForm('partie3')">S'enregistrer</button>
         </div>
 
       </form>
