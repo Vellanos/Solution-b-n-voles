@@ -29,7 +29,7 @@
           </div>
           <div class="mb-3">
             <label for="age" class="form-label d-flex">Age</label>
-            <input type="nombre" name="age" class="form-control" id="age" required minlength="18" maxlength="45">
+            <input type="number" name="age" class="form-control" id="age" required minlength="18" maxlength="45">
             <span id="ageError" class="text-danger"></span><br>
           </div>
           <div class="mb-3">
@@ -44,7 +44,7 @@
           </div>
           <div class="mb-3">
             <label for="telephone" class="form-label d-flex">Numéro de téléphone</label>
-            <input type="tel" name="telephone" class="form-control" id="telephone" required minlength="10" maxlength="10">
+            <input type="number" name="telephone" class="form-control" id="telephone" required minlength="10" maxlength="10">
             <span id="telephoneError" class="text-danger"></span><br>
           </div>
           <div class="mb-3">
