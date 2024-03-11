@@ -1,5 +1,5 @@
-body {
-  background-image: url("../assets/img/home.webp");
+/* body {
+  background-color: #846a6a;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,8 +11,22 @@ body {
   gap: 20dvh;
 }
 
+.background-square {
+  background-color: #353b3c;
+  width: 1500px;
+  padding: 300px;
+  rotate: 30deg;
+  z-index: -1;
+}
+
 h1 {
-  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  color: #000;
+  font-size: 40px;
 }
 
 a {
@@ -20,10 +34,10 @@ a {
 }
 
 .button-wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 3dvh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3dvh;
 }
 
 .button {
@@ -38,6 +52,79 @@ a {
 .benevole {
   background-color: #3498db;
   color: #fff;
+}
+
+.login {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #2980b9;
+} */
+
+body {
+  background-color: #846a6a;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Utilisation correcte de 100vh */
+  gap: 20px; /* Utilisation de valeurs en pixels */
+}
+
+.background-square {
+  background-color: #353b3c;
+  width: 800px; /* Largeur réduite du rectangle */
+  height: 400px; /* Hauteur ajoutée pour couvrir la zone inclinée */
+  transform: rotate(45deg); /* Correction de la propriété rotate */
+  z-index: -1;
+}
+
+h1 {
+  color: #000;
+  font-size: 40px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  /* gap: 5px; Utilisation de valeurs en pixels */
+}
+
+.all-buttons {
+  background-color: #000;
+  padding: 20px;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 40px;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 35px;
+  transition: background-color 0.3s, color 0.3s;
+  /* width: 150px;
+  height: 100px; */
+}
+
+.benevole {
+  background-color: #3498db;
+  color: #fff;
+  opacity: 20%;
 }
 
 .login {

@@ -9,11 +9,16 @@
 </head>
 
 <body>
+
     <h1>La colonie</h1>
-    <div class="button-wrapper">
-        <a href="./public/pages/form.php" class="button benevole">Devenir bénévole </a>
-        <a href="./public/pages/login.php" class="button login">Se connecter</a>
+    <div class="all-buttons">
+        <div class="button-wrapper">
+            <a href="./public/pages/form.php" class="button benevole">Devenir bénévole </a>
+            <div class="background-square"></div>
+            <a href="./public/pages/login.php" class="button login">Se connecter</a>
+        </div>
     </div>
+
 </body>
 
 </html>
