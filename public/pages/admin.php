@@ -6,6 +6,8 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     header("Location: login.php"); // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté en tant qu'admin
     exit;
 }
+
+// print_r($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form>
+                <form method="POST" action="../backend/traitementFormEvent.php">
                     <div class="mb-3">
                         <label for="region" class="form-label">Region</label>
                         <select name="region" id="region" class="form-select" required>
