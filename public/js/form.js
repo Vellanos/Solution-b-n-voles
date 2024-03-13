@@ -1,8 +1,8 @@
 function afficherPartie(idPartie, idPartieOld) {
-  var isValid = validateForm(idPartieOld); // Valide le formulaire
+  let isValid = validateForm(idPartieOld); // Valide le formulaire
   if (isValid) {
-    var parties = document.getElementsByClassName("partie");
-    for (var i = 0; i < parties.length; i++) {
+    let parties = document.getElementsByClassName("partie");
+    for (let i = 0; i < parties.length; i++) {
       parties[i].style.display = "none";
     }
     document.getElementById(idPartie).style.display = "block";
@@ -10,28 +10,28 @@ function afficherPartie(idPartie, idPartieOld) {
 }
 
 function backPartie(idPartie) {
-    var parties = document.getElementsByClassName("partie");
-    for (var i = 0; i < parties.length; i++) {
-      parties[i].style.display = "none";
-    }
-    document.getElementById(idPartie).style.display = "block";
+  let parties = document.getElementsByClassName("partie");
+  for (let i = 0; i < parties.length; i++) {
+    parties[i].style.display = "none";
   }
+  document.getElementById(idPartie).style.display = "block";
+}
 
 function validateForm(idPartieOld) {
-  var nom = document.getElementById("nom").value;
-  var prenom = document.getElementById("prenom").value;
-  var age = document.getElementById("age").value;
-  var sexe = document.getElementById("sexe").value;
-  var telephone = document.getElementById("telephone").value;
-  var email = document.getElementById("email").value;
-  var region = document.getElementById("region").value;
-  var disponibiliteJour = document.getElementById("disponibilite-jour").value;
-  var disponibiliteHoraire = document.getElementById(
+  let nom = document.getElementById("nom").value;
+  let prenom = document.getElementById("prenom").value;
+  let age = document.getElementById("age").value;
+  let sexe = document.getElementById("sexe").value;
+  let telephone = document.getElementById("telephone").value;
+  let email = document.getElementById("email").value;
+  let region = document.getElementById("region").value;
+  let disponibiliteJour = document.getElementById("disponibilite-jour").value;
+  let disponibiliteHoraire = document.getElementById(
     "disponibilite-horaire"
   ).value;
-  var expressionLibre = document.getElementById("expression-libre").value;
+  let expressionLibre = document.getElementById("expression-libre").value;
 
-  var isValid = true;
+  let isValid = true;
 
   // Réinitialiser les messages d'erreur
   document.getElementById("nomError").innerHTML = "";

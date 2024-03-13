@@ -1,5 +1,11 @@
 <?php
 
+require_once './class/event.php';
+require_once './class/dbEvent.php';
+
+// Initialisation de la connexion à la base de données
+$newDbConnection = new dbEvent('./class/db.csv');
+
 // Vérification si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Vérification des champs
@@ -11,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Nettoyage et validation du champ nom
     $nom = htmlspecialchars($_POST["nom"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
   }
 
   // Validation du champ prénom
@@ -20,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Nettoyage et validation du champ prénom
     $prenom = htmlspecialchars($_POST["prenom"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
   }
 
   // Validation du champ age
@@ -29,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Nettoyage et validation du champ age
     $age = htmlspecialchars($_POST["age"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
   }
 
   // Validation du champ sexe
@@ -38,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Nettoyage et validation du champ sexe
     $sexe = htmlspecialchars($_POST["sexe"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
   }
 
   // Validation du champ téléphone
@@ -47,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Nettoyage et validation du champ téléphone
     $telephone = htmlspecialchars($_POST["telephone"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
   }
 
   // Validation du champ email
@@ -67,34 +68,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Nettoyage et validation du champ région
     $region = htmlspecialchars($_POST["region"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
   }
 
   // Validation du champ disponibilité jour
-  if (!isset($_POST["disponibilite-jour"]) || !is_array($_POST["disponibilite-jour"])) {
+  if (!isset($_POST["disponibilite-jour"])) {
     $errors[] = "Le champ disponibilité jour est requis.";
   } else {
     // Nettoyage et validation du champ disponibilité jour
-    $disponibiliteJour = implode(", ", $_POST["disponibilite-jour"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
+    $disponibiliteJour = htmlspecialchars($_POST["disponibilite-jour"]);
   }
 
   // Validation du champ disponibilité horaire
-  if (!isset($_POST["disponibilite-horaire"]) || !is_array($_POST["disponibilite-horaire"])) {
+  if (!isset($_POST["disponibilite-horaire"])) {
     $errors[] = "Le champ disponibilité horaire est requis.";
   } else {
     // Nettoyage et validation du champ disponibilité horaire
-    $disponibiliteHoraire = implode(", ", $_POST["disponibilite-horaire"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
+    $disponibiliteHoraire = htmlspecialchars($_POST["disponibilite-horaire"]);
   }
 
   // Validation du champ post privilégié (facultatif)
-  if (isset($_POST["post-privilégie"]) && is_array($_POST["post-privilégie"])) {
+  if (isset($_POST["post-privilégie"])) {
     // Nettoyage et validation du champ post privilégié
-    $postPrivilégie = implode(", ", $_POST["post-privilégie"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
-  } else {
-    $postPrivilégie = "";
+    $postPrivilégie = htmlspecialchars($_POST["post-privilégie"]);
   }
 
   // Validation du champ expression libre
@@ -103,15 +98,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Nettoyage et validation du champ expression libre
     $expressionLibre = htmlspecialchars($_POST["expression-libre"]);
-    // Vous pouvez ajouter d'autres règles de validation ici si nécessaire
   }
 
-  // Si aucun erreur, enregistrement dans un fichier CSV
+  // Si aucune erreur, enregistrement dans un fichier CSV
   if (empty($errors)) {
     // Création ou ouverture du fichier CSV en mode écriture
-    $csvFile = fopen("../chemin/vers/le/fichier/donnees.csv", "a");
+    $csvFile = fopen("./class/db.csv", "a");
 
-    // Création d'une ligne de données à insérer dans le fichier CSV
     // Création d'une ligne de données à insérer dans le fichier CSV
     $data = array(
       $nom,
@@ -133,12 +126,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Fermeture du fichier CSV
     fclose($csvFile);
 
+    // $newsession = new session
+
     // Redirection vers la page souhaitée après l'enregistrement
-    header("Location: ../pageDeContact");
+    header("Location: ../pages/pageDesInfos.php");
     exit();
   } else {
     // Redirection vers la page du formulaire avec les erreurs
-    header("Location: ../form.php?errors=" . urlencode(implode("\n", $errors)));
+    header("Location: ../form.php?success=0&errors=" . urlencode(implode("\n", $errors)));
     exit();
   }
 }
