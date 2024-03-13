@@ -20,7 +20,6 @@ session_start();
             <h1> Bon retour parmis nous !</h1>
             <h2>Si vous êtes admin</h2>
             <?php
-            
             if (isset($_SESSION['error'])) {
                 echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
                 unset($_SESSION['error']);

@@ -17,7 +17,7 @@ if (!empty($_POST) && isset($_POST['username']) && isset($_POST['password'])) {
         exit;
     } else {
 
-        $_SESSION['error'] = "Nom d'utilisateur ou mot de passe incorrect.";
+        $_SESSION['error'] = "invalid credentials";
         header("Location: ../pages/login.php?test");
         exit;
     }
