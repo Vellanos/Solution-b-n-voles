@@ -12,7 +12,7 @@ if (!empty($_POST) && isset($_POST['region'], $_POST['date'], $_POST['eventName'
 
     $newDbConnection = new dbEvent('./class/dbEvent.csv');
 
-    $eventsData = $db->readFromCsv();
+    $eventsData = $newDbConnection->readFromCsv();
 
     $maxId = 0;
 
@@ -21,6 +21,7 @@ foreach ($eventsData as $rowData) {
 
     if ($id > $maxId) {
         $maxId = $id;
+        $maxId = $maxId + 1;
     }
 }
 
