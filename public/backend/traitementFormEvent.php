@@ -16,12 +16,9 @@ if (!empty($_POST) && isset($_POST['region'], $_POST['date'], $_POST['eventName'
 
     $maxId = 0;
 
-// Parcourir les données pour trouver l'ID maximal
 foreach ($eventsData as $rowData) {
-    // Convertir la valeur de la première colonne en entier
     $id = (int)$rowData[0];
-    
-    // Mettre à jour l'ID maximal si nécessaire
+
     if ($id > $maxId) {
         $maxId = $id;
     }
