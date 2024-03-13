@@ -3,11 +3,10 @@
 session_start();
 
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
-    header("Location: login.php"); // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté en tant qu'admin
+    header("Location: login.php");
     exit;
 }
 
-// print_r($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +25,25 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     <h1>PAGE ADMIN</h1>
     <h2>Liste des évènements</h2>
     <div class="card-wrapper">
-        <?php include("../assets/components/cardEvent.php") ?>
-        <?php include("../assets/components/cardEvent.php") ?>
-        <?php include("../assets/components/cardEvent.php") ?>
+        <?php
+        require_once '../backend/class/dbEvent.php';
+
+        $db = new dbEvent('../backend/class/dbEvent.csv');
+
+        $eventsData = $db->readFromCsv();
+
+        foreach ($eventsData as $event) {
+            echo '<div class="card" style="width: 18rem;">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">' . $event[3] . '</h5>';
+            echo '<h6 class="card-subtitle mb-2 text-body-secondary">' . $event[2] . '</h6>';
+            echo '<h6 class="card-subtitle mb-2 text-body-secondary">' . $event[1] . '</h6>'; 
+            echo '<p class="card-text">' . $event[4] . '</p>';
+            // echo '<a href="#" class="card-link">Voir l\'évènement</a>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
     </div>
     <div class="container mt-5">
         <div class="row justify-content-center">
@@ -65,7 +80,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
                         <span id="eventNameError" class="text-danger"></span><br>
                     </div>
                     <div class="mb-3">
-                        <label for="comment" class="form-label">Commentaire (falcultatif)   </label>
+                        <label for="comment" class="form-label">Commentaire (falcultatif) </label>
                         <textarea name="comment" class="form-control" id="comment" rows="3" minlength="5" maxlength="100"></textarea>
                         <span id="commentError" class="text-danger"></span><br>
                     </div>

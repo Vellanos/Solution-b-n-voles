@@ -2,8 +2,6 @@
 require_once './class/event.php';
 require_once './class/dbEvent.php';
 
-// print_r($_POST);
-
 if (!empty($_POST) && isset($_POST['region'], $_POST['date'], $_POST['eventName'])) {
 
     //Sanitiser les données
@@ -14,15 +12,24 @@ if (!empty($_POST) && isset($_POST['region'], $_POST['date'], $_POST['eventName'
 
     $newDbConnection = new dbEvent('./class/dbEvent.csv');
 
-    $dataEvent = $newDbConnection->readFromCsv();
+    $eventsData = $db->readFromCsv();
 
-    $dataEvent = 
+    $maxId = 0;
+
+// Parcourir les données pour trouver l'ID maximal
+foreach ($eventsData as $rowData) {
+    // Convertir la valeur de la première colonne en entier
+    $id = (int)$rowData[0];
+    
+    // Mettre à jour l'ID maximal si nécessaire
+    if ($id > $maxId) {
+        $maxId = $id;
+    }
+}
 
     $csv = $newDbConnection->openCsv();
 
-    $newEvent = new Event($id, $region, $date, $nom, $commentaire);
-
-    print_r($dataEvent);
+    $newEvent = new Event($maxId, $region, $date, $nom, $commentaire);
 
     if ($csv !== false) {
 
@@ -30,10 +37,10 @@ if (!empty($_POST) && isset($_POST['region'], $_POST['date'], $_POST['eventName'
 
         $newDbConnection->closeCsv($csv);
 
-        // header("Location: ../pages/admin.php?success");
+        header("Location: ../pages/admin.php");
 
         exit;
     } 
 } else {
-    header("Location: ../pages/admin.php?firstcondition");
+    header("Location: ../pages/admin.php");
 }
