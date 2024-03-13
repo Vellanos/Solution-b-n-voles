@@ -9,17 +9,17 @@ if (!empty($_POST) && isset($_POST['username']) && isset($_POST['password'])) {
     $secretUsername = "patissier"; // Nom d'utilisateur
     $secretPassword = "kevinleboss"; // Mot de passe
 
-
     if ($username === $secretUsername && password_verify($password, password_hash($secretPassword, PASSWORD_DEFAULT))) {
 
         $_SESSION['admin'] = true;
-        // // Détruisez complètement la session
-        // session_destroy();
+        unset($_SESSION['error']);
         header("Location: ../pages/admin.php");
         exit;
     } else {
 
-        header("Location: ../pages/login.php");
+        $_SESSION['error'] = "Nom d'utilisateur ou mot de passe incorrect.";
+        header("Location: ../pages/login.php?test");
         exit;
     }
 }
+?>

@@ -1,3 +1,7 @@
+<?php 
+session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +13,19 @@
 </head>
 
 <body>
-    <?php include("../assets/components/header.php") ?>
+    <?php
+    include("../assets/components/header.php"); ?>
     <main class="d-flex flex-column align-items-center text-center mt-3">
         <div class="form-wrapper d-flex flex-column gap-4">
             <h1> Bon retour parmis nous !</h1>
             <h2>Si vous êtes admin</h2>
+            <?php
+            
+            if (isset($_SESSION['error'])) {
+                echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+                unset($_SESSION['error']);
+            }
+            ?>
             <form class="d-flex flex-column container justify-content-center align-items-center mb-2 gap-3" method="POST" action="../backend/logInAdmin.php">
                 <div class="mb-3">
                     <label for="Username" class="form-label d-flex">Username</label>
