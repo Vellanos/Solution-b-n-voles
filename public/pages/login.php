@@ -3,13 +3,13 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La colonie</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/form.css">
 </head>
 
 <body>
@@ -27,11 +27,11 @@ session_start();
             ?>
             <form class="d-flex flex-column container justify-content-center align-items-center mb-2 gap-3" method="POST" action="../backend/logInAdmin.php">
                 <div class="mb-3">
-                    <label for="Username" class="form-label d-flex">Username</label>
+                    <label for="Username" class="form-label d-flex">Nom d'utilisateur</label>
                     <input type="text" name="username" class="form-control" id="Username">
                 </div>
                 <div class="mb-3">
-                    <label for="Password" class="form-label d-flex">Password</label>
+                    <label for="Password" class="form-label d-flex">Mot de passe</label>
                     <input type="password" name="password" class="form-control" id="Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
@@ -39,7 +39,7 @@ session_start();
             <h2>Si vous êtes bénévole</h2>
             <form class="d-flex flex-column container justify-content-center align-items-center gap-3">
                 <div class="mb-3">
-                    <label for="UniqueCode" class="form-label d-flex">Unique code</label>
+                    <label for="UniqueCode" class="form-label d-flex">Code Unique</label>
                     <input type="password" class="form-control" id="UniqueCode">
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>

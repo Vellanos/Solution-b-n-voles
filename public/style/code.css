@@ -1,0 +1,16 @@
+body {
+    background-color: #a2999e;
+    font-family: "Jacques Francois", serif;
+    font-size: 22px;
+  }
+  
+  h1 {
+    font-size: auto;
+  }
+
+.centered-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -112,8 +112,8 @@
           </div>
 
           <div class="mb-3">
-            <label for="post-privilégi" class="form-label d-flex">Post privilégié (facultatif) :</label>
-            <select name="post-privilégie" id="post-privilégie" class="form-select" multiple>
+            <label for="post-privilegie" class="form-label d-flex">Post privilégié (facultatif) :</label>
+            <select name="post-privilegie" id="post-privilegie" class="form-select" multiple>
               <option value="sécurité">Sécurité</option>
               <option value="bar">Bar</option>
               <option value="technique">Technique</option>
