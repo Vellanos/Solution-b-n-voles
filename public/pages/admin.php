@@ -37,7 +37,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $event[3] . '</h5>';
             echo '<h6 class="card-subtitle mb-2 text-body-secondary">' . $event[2] . '</h6>';
-            echo '<h6 class="card-subtitle mb-2 text-body-secondary">' . $event[1] . '</h6>'; 
+            echo '<h6 class="card-subtitle mb-2 text-body-secondary">' . $event[1] . '</h6>';
             echo '<p class="card-text">' . $event[4] . '</p>';
             // echo '<a href="#" class="card-link">Voir l\'évènement</a>';
             echo '</div>';
@@ -49,6 +49,12 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form method="POST" action="../backend/traitementFormEvent.php">
+                    <?php
+                    if (isset($_SESSION['errorEvent'])) {
+                        echo '<div class="alert alert-danger">' . $_SESSION['errorEvent'] . '</div>';
+                        unset($_SESSION['errorEvent']);
+                    }
+                    ?>
                     <div class="mb-3">
                         <label for="region" class="form-label">Region</label>
                         <select name="region" id="region" class="form-select" required>
