@@ -3,6 +3,7 @@
 require_once './class/benevole.php';
 require_once './class/dbEvent.php';
 
+
 function generateUniqueID()
 {
   $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
