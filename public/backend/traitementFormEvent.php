@@ -34,22 +34,24 @@ if (!empty($_POST) && isset($_POST['region'], $_POST['date'], $_POST['eventName'
     $date = sanitizeInput($_POST['date']);
     $eventName = sanitizeInput($_POST['eventName']);
     $comment = sanitizeInput($_POST['comment']);
-    
+
     $errors = validateForm($region, $date, $eventName, $comment);
 
-    
+
     if (empty($errors)) {
 
         $newDbConnection = new dbEvent('./class/dbEvent.csv');
         $eventsData = $newDbConnection->readFromCsv();
 
+        $maxId = 0;
+
         foreach ($eventsData as $rowData) {
-            $maxId = 0;
             $id = (int)$rowData[0];
 
-            if ($id > $maxId) {
-                $maxId = $id;
-                $maxId = $maxId + 1;
+            if (!empty($id)) {
+                if ($id > $maxId) {
+                    $maxId = $id;
+                }
             }
         }
 
