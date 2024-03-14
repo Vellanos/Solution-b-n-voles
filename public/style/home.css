@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: #846a6a;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,14 +9,6 @@
   align-items: center;
   height: 100dvh;
   gap: 20dvh;
-}
-
-.background-square {
-  background-color: #353b3c;
-  width: 1500px;
-  padding: 300px;
-  rotate: 30deg;
-  z-index: -1;
 }
 
 h1 {
@@ -61,7 +53,7 @@ a {
 
 .button:hover {
   background-color: #2980b9;
-} */
+}
 
 body {
   background-color: #846a6a;
@@ -72,16 +64,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Utilisation correcte de 100vh */
-  gap: 20px; /* Utilisation de valeurs en pixels */
-}
-
-.background-square {
-  background-color: #353b3c;
-  width: 800px; /* Largeur réduite du rectangle */
-  height: 400px; /* Hauteur ajoutée pour couvrir la zone inclinée */
-  transform: rotate(45deg); /* Correction de la propriété rotate */
-  z-index: -1;
+  height: 100vh;
+  gap: 20px;
 }
 
 h1 {
@@ -98,12 +82,7 @@ a {
   flex-direction: column;
 
   text-align: center;
-  /* gap: 5px; Utilisation de valeurs en pixels */
-}
-
-.all-buttons {
-  background-color: #000;
-  padding: 20px;
+  gap: 5px;
 }
 
 .button {
@@ -117,21 +96,22 @@ a {
   font-size: 20px;
   border-radius: 35px;
   transition: background-color 0.3s, color 0.3s;
-  /* width: 150px;
-  height: 100px; */
 }
 
 .benevole {
   background-color: #3498db;
   color: #fff;
-  opacity: 20%;
 }
 
 .login {
-  background-color: #e74c3c;
+  background-color: red;
   color: #fff;
 }
 
 .button:hover {
   background-color: #2980b9;
+}
+
+.login:hover {
+  background-color: #cb2b19;
 }
