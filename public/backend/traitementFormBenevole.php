@@ -1,7 +1,20 @@
 <?php
 
-require_once './class/event.php';
+require_once './class/benevole.php';
 require_once './class/dbEvent.php';
+
+function generateUniqueID()
+{
+  $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $id_length = 5;
+  $id = '';
+
+  for ($i = 0; $i < $id_length; $i++) {
+    $id .= $characters[rand(0, strlen($characters) - 1)];
+  }
+
+  return $id;
+}
 
 // Initialisation de la connexion à la base de données
 $newDbConnection = new dbEvent('./class/db.csv');
@@ -105,8 +118,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Création ou ouverture du fichier CSV en mode écriture
     $csvFile = fopen("./class/db.csv", "a");
 
+    // génération du code unique
+
+    $id = generateUniqueID();
+
     // Création d'une ligne de données à insérer dans le fichier CSV
-    $data = array(
+    $data = new Benevole(
+      $id,
       $nom,
       $prenom,
       $age,
@@ -121,12 +139,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
 
     // Écriture de la ligne dans le fichier CSV
-    fputcsv($csvFile, $data);
+    fputcsv($csvFile, $data->convertToArray());
 
     // Fermeture du fichier CSV
     fclose($csvFile);
 
     // $newsession = new session
+
+    session_start();
 
     // Redirection vers la page souhaitée après l'enregistrement
     header("Location: ../pages/pageDesInfos.php");
