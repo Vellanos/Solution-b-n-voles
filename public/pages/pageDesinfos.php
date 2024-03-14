@@ -19,8 +19,7 @@
 
     <div id="liveAlertPlaceholder"></div>
     <button type="button" class="btn btn-primary" id="liveAlertBtn">Voir mon code unique de bénévole</button>
-
-
+    
   </main>
   <footer></footer>
   <script>

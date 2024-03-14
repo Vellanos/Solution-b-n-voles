@@ -18,6 +18,7 @@ function generateUniqueID()
 
 // Initialisation de la connexion à la base de données
 $newDbConnection = new dbEvent('./class/db.csv');
+$benevoleData = $newDbConnection->readFromCsv();
 
 // Vérification si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

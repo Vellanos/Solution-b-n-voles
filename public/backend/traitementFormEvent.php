@@ -54,6 +54,8 @@ if (!empty($_POST) && isset($_POST['region'], $_POST['date'], $_POST['eventName'
                 }
             }
         }
+        $maxId = $maxId + 1;
+
 
         $csv = $newDbConnection->openCsv();
 
