@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
 
 <body>
     <?php include("../assets/components/header.php") ?>
-    <h1>PAGE ADMIN</h1>
+    <h1>Page d'administration</h1>
     <h2>Liste des évènements</h2>
     <div class="card-wrapper">
         <?php
@@ -33,15 +33,16 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
         $eventsData = $db->readFromCsv();
 
         foreach ($eventsData as $event) {
+            echo '<a href="event.php?id=' . $event[0] . '" class="card-link">';
             echo '<div class="card" style="width: 18rem;">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $event[3] . '</h5>';
             echo '<h6 class="card-subtitle mb-2 text-body-secondary">' . $event[2] . '</h6>';
             echo '<h6 class="card-subtitle mb-2 text-body-secondary">' . $event[1] . '</h6>';
             echo '<p class="card-text">' . $event[4] . '</p>';
-            // echo '<a href="#" class="card-link">Voir l\'évènement</a>';
             echo '</div>';
             echo '</div>';
+            echo '</a>';
         }
         ?>
     </div>
