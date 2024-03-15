@@ -34,7 +34,7 @@ if (isset($_SESSION['id'])) {
                     </div>
                 </div>
                 <div class="text-center mt-3">
-                    <a href="./infoBenevole.php" class="btn btn-primary">Aller sur votre page</a>
+                    <a href="./login.php" class="btn btn-primary">Aller sur la page de connexion</a>
                 </div>
             </div>
         </div>

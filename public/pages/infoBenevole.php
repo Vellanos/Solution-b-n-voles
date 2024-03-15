@@ -3,9 +3,7 @@ session_start();
 require_once './../backend/class/dbEvent.php';
 
 if (
-  isset($_SESSION['benevole']) && !empty($_SESSION['benevole']) &&
-  isset($_SESSION['assignedMissions']) && !empty($_SESSION['assignedMissions'])
-) {
+  isset($_SESSION['benevole']) && !empty($_SESSION['benevole'])) {
 
   $benevoleData = $_SESSION['benevole'];
   $idEvents = $_SESSION['assignedMissions'];
@@ -29,6 +27,7 @@ if (
   $db = new dbEvent('../backend/class/dbEvent.csv');
   $eventsData = $db->readFromCsv();
 
+  if (!empty($idEvents))
   foreach ($eventsData as $event) {
     if (in_array($event[0], $idEvents)) {
       $assignedEvents[] = $event;
