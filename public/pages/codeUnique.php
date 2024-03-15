@@ -24,7 +24,7 @@ if (isset($_SESSION['id'])) {
             <div class="col-md-6 offset-md-3">
                 <h1 class="text-center mt-5">Félicitations pour votre inscription</h1>
                 <div class="card centered-card">
-                    <div class="card-body text-center"> <!-- Ajout de la classe text-center -->
+                    <div class="card-body text-center">
                         <h5 class="card-title">Votre identifiant</h5>
                         <?php if (isset($id)) { ?>
                             <p class="card-text"><?php echo $id; ?></p>
