@@ -1,5 +1,5 @@
 <?php 
-session_start(); 
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -37,10 +37,16 @@ session_start();
                 <button type="submit" class="btn btn-primary">Se connecter</button>
             </form>
             <h2>Si vous êtes bénévole</h2>
-            <form class="d-flex flex-column container justify-content-center align-items-center gap-3">
+            <?php
+            if (isset($_SESSION['errorBenevole'])) {
+                echo '<div class="alert alert-danger">' . $_SESSION['errorBenevole'] . '</div>';
+                unset($_SESSION['errorBenevole']);
+            }
+            ?>
+            <form class="d-flex flex-column container justify-content-center align-items-center gap-3" method="POST" action="../backend/logInBenevole.php">
                 <div class="mb-3">
                     <label for="UniqueCode" class="form-label d-flex">Code Unique</label>
-                    <input type="password" class="form-control" id="UniqueCode">
+                    <input type="password" name="UniqueCode" class="form-control" id="UniqueCode">
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
             </form>

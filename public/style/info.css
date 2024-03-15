@@ -1,3 +1,9 @@
+body {
+  background-color: #a2999e;
+  font-family: "Jacques Francois", serif;
+  font-size: 22px;
+}
+
 h1 {
   font-size: auto;
 }
@@ -10,12 +16,6 @@ h1 {
 }
 .card {
   margin-bottom: 20px;
-}
-
-.card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: whitesmoke;
-  cursor: pointer;
 }
 
 a {
