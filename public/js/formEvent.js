@@ -1,5 +1,4 @@
 function validateForm() {
-  console.log("DEBUT");
   var region = document.getElementById("region").value;
   var date = document.getElementById("date").value;
   var eventName = document.getElementById("eventName").value;
